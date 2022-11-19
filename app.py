@@ -54,4 +54,4 @@ def dencript_message():
     body = request.json
     return decript(body["p"],body["q"],body["e"], body["message"])
 
-app.run(debug=True)
+app.run(host='0.0.0.0', port=8080)
