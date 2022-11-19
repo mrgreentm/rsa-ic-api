@@ -1,9 +1,12 @@
+import os
 from flask import Flask, request
 from flask_cors import CORS
 
 
 
 app = Flask(__name__)
+port = int(os.environ.get('PORT', 33507))
+
 CORS(app)
 app.config['JSON_AS_ASCII'] = False
 
@@ -54,4 +57,4 @@ def dencript_message():
     body = request.json
     return decript(body["p"],body["q"],body["e"], body["message"])
 
-app.run(debug=True, port=33507)
+app.run(debug=True, port=port)
