@@ -25,12 +25,13 @@ def encript_for_each_n(message, e, n):
         encripted_message.append(e_m)
     return {"encripted_message":encripted_message}
 
+def modular_exponenciation(e,phi):
+    return pow(int(e),-1,int(phi))
+
 def decript(p, q, e, message):
-    d = 2
+    d = modular_exponenciation(e,totiente(p,q))
     n = int(p)*int(q)
     decripted_message = []
-    while((d*int(e)) % totiente(p,q) != 1):
-        d+=1
     for num in message:
         m = pow(int(num),int(d),n)
         decripted_message.append(m)
